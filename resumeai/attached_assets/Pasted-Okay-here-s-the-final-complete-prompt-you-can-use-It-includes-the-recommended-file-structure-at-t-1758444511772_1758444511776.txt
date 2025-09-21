@@ -1,0 +1,76 @@
+Okay, here's the final, complete prompt you can use. It includes the recommended file structure at the top and the comprehensive prompt below, combining all the features and design specifications we've discussed.
+
+### Project File Structure
+
+Here's the recommended file structure for your project. This will help the AI understand where to place all the files and folders for a clean, professional setup.
+
+```
+resume-ai-app/
+├── backend/
+│   ├── .env                    # Environment variables (your API key goes here)
+│   ├── .gitignore              # Files to ignore (e.g., node_modules, .env)
+│   ├── package.json            # Node.js dependencies and scripts
+│   ├── node_modules/           # Installed packages (auto-generated)
+│   └── server.js               # Your Express server and API logic
+│
+└── frontend/
+    ├── public/                 # Static assets (images, logos, etc.)
+    ├── src/                    # All your React/Next.js source code
+    │   ├── components/         # Reusable UI components (e.g., Card, Button)
+    │   ├── App.js              # Main application component
+    │   └── index.js            # Entry point of the React app
+    ├── .gitignore              # Files to ignore (e.g., node_modules)
+    ├── package.json            # Frontend dependencies and scripts
+    └── README.md               # Instructions for setting up the frontend
+
+```
+
+-----
+
+### Final Prompt for Cursor AI
+
+You are an expert AI developer assistant specializing in building full-stack web applications for hackathons. Your task is to generate the complete codebase for a feature-rich, GenAI-powered Resume Analysis App.
+
+**1. Project Goal:**
+Create a web application that provides a full suite of resume and career tools. The app must be user-friendly on both desktop and mobile devices. It will accept a resume (via PDF upload or text paste) and a job description, then use the Google Gemini API to provide a detailed analysis and generate tailored content.
+
+**2. Technology Stack:**
+
+  * **Frontend:** React (or Next.js) with a robust component library like **MUI** or **Chakra UI** to ensure a mobile-first, responsive design.
+  * **Backend:** Node.js with Express.js.
+  * **APIs:** Google Gemini API.
+  * **Dependencies:** `pdf-parse` for PDF text extraction, `dotenv` for secure API key management, `axios` for API calls.
+
+**3. Frontend Design & User Interface:**
+The interface must be modern, professional, and elegant, with a strong focus on a **mobile-first, user-friendly experience**.
+
+  * **Aesthetic:** Use a harmonious color palette, sleek typography (e.g., Poppins or Lato), and a clean, minimalistic layout. Incorporate polished UI elements like stylish buttons, subtle shadows, and smooth gradients to enhance the elegance. The design should look professional and be suitable for a corporate or tech website.
+  * **Responsiveness:** The layout must adapt seamlessly to different screen sizes, from mobile phones to laptops, ensuring full functionality and visual appeal on all devices.
+  * **Layout:**
+      * **Input Section:** A prominent, responsive section for resume submission, allowing for either PDF upload or text paste. Include a separate input field for an optional job description.
+      * **Results Section:** After analysis, display all results in a dynamic, easy-to-read format. Use clean `Card` components for each analysis feature to keep the UI organized and visually distinct.
+
+**4. Backend Logic & API Integration:**
+Build a robust and well-documented Node.js backend to handle all the heavy lifting.
+
+  * **API Endpoint:** A single `POST` endpoint (e.g., `/api/analyze-resume`) that accepts the resume text and, if provided, the job description text.
+  * **Functionality:** The backend will perform the following actions, executing multiple calls to the Gemini API as needed:
+      * Extract text from a PDF if a file is uploaded.
+      * Generate a **2-line professional summary**.
+      * Extract **highlights** (skills, projects, keywords).
+      * Provide a **resume rating** out of 10 with a brief explanation.
+      * Provide a bulleted list of **suggestions for improvement**.
+      * (New) Generate a **Job Description Match Score** and list of missing keywords.
+      * (New) Draft a **tailored cover letter**.
+      * (New) Generate a list of common **interview questions**.
+      * (New) Generate a concise **LinkedIn profile summary**.
+  * **Gemini API Prompts:** For each of the above features, craft a specific and detailed prompt for the Gemini API.
+  * **Response:** Consolidate all the results from the Gemini API into a single, well-structured JSON object to send back to the frontend.
+
+**5. Final Instructions for Cursor AI:**
+
+1.  Generate the full file structure as defined above.
+2.  Write commented, production-ready code for both the Node.js backend and the React frontend.
+3.  Ensure all code is modular, reusable, and easy to understand for future extensions.
+4.  Add a placeholder `.env` file in the backend directory. **Do not embed the API key directly in the code.**
+5.  Provide clear instructions on how to install dependencies and run the application.
